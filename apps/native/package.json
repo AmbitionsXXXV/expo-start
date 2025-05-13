@@ -10,14 +10,20 @@
 		"web": "expo start --web"
 	},
 	"dependencies": {
+		"@better-auth/expo": "^1.2.7",
 		"@expo/vector-icons": "^14.1.0",
 		"@react-navigation/bottom-tabs": "^7.3.13",
 		"@react-navigation/drawer": "^7.3.12",
 		"@react-navigation/native": "^7.1.9",
 		"@tanstack/react-form": "^1.11.1",
 		"@tanstack/react-query": "^5.76.0",
+		"@trpc/client": "^11.1.2",
+		"@trpc/server": "^11.1.2",
+		"@trpc/tanstack-react-query": "^11.1.2",
+		"better-auth": "^1.2.7",
 		"expo": "^53.0.9",
 		"expo-constants": "~17.1.6",
+		"expo-dev-client": "~5.1.8",
 		"expo-linking": "~7.1.5",
 		"expo-navigation-bar": "~4.2.4",
 		"expo-router": "~5.0.6",
@@ -33,12 +39,7 @@
 		"react-native-reanimated": "~3.17.5",
 		"react-native-safe-area-context": "5.4.0",
 		"react-native-screens": "~4.10.0",
-		"react-native-web": "^0.20.0",
-		"@trpc/tanstack-react-query": "^11.1.2",
-		"@trpc/client": "^11.1.2",
-		"@trpc/server": "^11.1.2",
-		"better-auth": "^1.2.7",
-		"@better-auth/expo": "^1.2.7"
+		"react-native-web": "^0.20.0"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.27.1",
