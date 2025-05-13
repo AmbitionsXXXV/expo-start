@@ -1,0 +1,38 @@
+{
+	"name": "my-better-t-app",
+	"private": true,
+	"workspaces": ["apps/*", "packages/*"],
+	"scripts": {
+		"check": "biome check --write .",
+		"dev": "turbo dev",
+		"build": "turbo build",
+		"check-types": "turbo check-types",
+		"dev:ios": "turbo -F native ios",
+		"dev:android": "turbo -F native android",
+		"dev:native": "turbo -F native dev",
+		"dev:web": "turbo -F web dev",
+		"dev:server": "turbo -F server dev",
+		"db:push": "turbo -F server db:push",
+		"db:studio": "turbo -F server db:studio",
+		"db:generate": "turbo -F server db:generate",
+		"db:migrate": "turbo -F server db:migrate",
+		"prepare": "lefthook install",
+		"commit": "git-cz"
+	},
+	"dependencies": {},
+	"devDependencies": {
+		"@biomejs/biome": "1.9.4",
+		"@commitlint/cli": "^19.8.1",
+		"@commitlint/config-conventional": "^19.8.1",
+		"cz-git": "^1.11.1",
+		"fast-glob": "^3.3.3",
+		"lefthook": "^1.11.12",
+		"turbo": "^2.5.3"
+	},
+	"packageManager": "bun@1.2.13",
+	"config": {
+		"commitizen": {
+			"path": "node_modules/cz-git"
+		}
+	}
+}

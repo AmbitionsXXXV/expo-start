@@ -1,0 +1,11 @@
+{
+  "cSpell.words": [
+    "libsql",
+    "turso"
+  ],
+  "tailwindCSS.classAttributes": [
+    "class",
+    "className",
+    "headerClassName"
+  ]
+}
