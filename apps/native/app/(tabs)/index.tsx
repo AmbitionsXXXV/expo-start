@@ -1,6 +1,7 @@
 import * as ImagePicker from "expo-image-picker";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { type ImageSourcePropType, View } from "react-native";
+import { captureRef } from "react-native-view-shot";
 
 import Button from "@/components/Button";
 import CircleButton from "@/components/CircleButton";
@@ -9,6 +10,9 @@ import EmojiPicker from "@/components/EmojiPicker";
 import EmojiSticker from "@/components/EmojiSticker";
 import IconButton from "@/components/IconButton";
 import ImageViewer from "@/components/ImageViewer";
+import * as MediaLibrary from "expo-media-library";
+
+const PlaceholderImage = require("@/assets/images/background-image.png");
 
 export default function Home() {
 	const [selectedImg, setSelectedImg] = useState<string | undefined>(undefined);
@@ -17,6 +21,12 @@ export default function Home() {
 	const [pickedEmoji, setPickedEmoji] = useState<
 		ImageSourcePropType | undefined
 	>(undefined);
+	const [status, requestPermission] = MediaLibrary.usePermissions();
+	const imageRef = useRef<View>(null);
+
+	if (status === null) {
+		requestPermission();
+	}
 
 	const pickImageAsync = async () => {
 		const result = await ImagePicker.launchImageLibraryAsync({
@@ -45,19 +55,33 @@ export default function Home() {
 	};
 
 	const onSaveImageAsync = async () => {
-		// we will implement this later
+		try {
+			const localUri = await captureRef(imageRef, {
+				height: 440,
+				quality: 1,
+			});
+
+			await MediaLibrary.saveToLibraryAsync(localUri);
+			if (localUri) {
+				alert("Saved!");
+			}
+		} catch (e) {
+			console.log(e);
+		}
 	};
 
 	return (
 		<View className="flex-1 items-center bg-[#25292e]">
 			<View className="flex-1 pt-7">
-				<ImageViewer
-					imgSource={require("@/assets/images/background-image.png")}
-					selectedImage={selectedImg}
-				/>
-				{pickedEmoji && (
-					<EmojiSticker imageSize={40} stickerSource={pickedEmoji} />
-				)}
+				<View ref={imageRef} collapsable={false}>
+					<ImageViewer
+						imgSource={PlaceholderImage}
+						selectedImage={selectedImg}
+					/>
+					{pickedEmoji && (
+						<EmojiSticker imageSize={40} stickerSource={pickedEmoji} />
+					)}
+				</View>
 			</View>
 			{showAppOptions ? (
 				<View className="absolute bottom-20">

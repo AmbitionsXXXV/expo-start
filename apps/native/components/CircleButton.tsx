@@ -7,7 +7,7 @@ type Props = {
 
 export default function CircleButton({ onPress }: Props) {
 	return (
-		<View className="bottom-4 mx-[60px] size-[84px] rounded-[42px] border-4 border-[#ffd33d] p-[3px]">
+		<View className="mx-[60px] size-[84px] rounded-[42px] border-4 border-[#ffd33d] p-[3px]">
 			<Pressable
 				className="flex-1 items-center justify-center rounded-[42px] bg-white"
 				onPress={onPress}
