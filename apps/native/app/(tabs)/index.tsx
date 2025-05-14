@@ -1,8 +1,11 @@
 import * as ImagePicker from "expo-image-picker";
+import * as MediaLibrary from "expo-media-library";
+
 import { useRef, useState } from "react";
 import { type ImageSourcePropType, View } from "react-native";
 import { captureRef } from "react-native-view-shot";
 
+import PlaceholderImage from "@/assets/images/background-image.png";
 import Button from "@/components/Button";
 import CircleButton from "@/components/CircleButton";
 import EmojiList from "@/components/EmojiList";
@@ -10,9 +13,6 @@ import EmojiPicker from "@/components/EmojiPicker";
 import EmojiSticker from "@/components/EmojiSticker";
 import IconButton from "@/components/IconButton";
 import ImageViewer from "@/components/ImageViewer";
-import * as MediaLibrary from "expo-media-library";
-
-const PlaceholderImage = require("@/assets/images/background-image.png");
 
 export default function Home() {
 	const [selectedImg, setSelectedImg] = useState<string | undefined>(undefined);
