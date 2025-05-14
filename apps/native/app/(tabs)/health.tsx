@@ -7,7 +7,7 @@ import { SignIn } from "@/components/sign-in";
 import { SignUp } from "@/components/sign-up";
 import { queryClient, trpc } from "@/utils/trpc";
 
-export default function Home() {
+export default function Health() {
 	const healthCheck = useQuery(trpc.healthCheck.queryOptions());
 	const privateData = useQuery(trpc.privateData.queryOptions());
 	const { data: session } = authClient.useSession();
