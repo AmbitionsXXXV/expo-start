@@ -1,8 +1,9 @@
 import * as ImagePicker from "expo-image-picker";
 import * as MediaLibrary from "expo-media-library";
 
+import domtoimage from "dom-to-image";
 import { useRef, useState } from "react";
-import { type ImageSourcePropType, View } from "react-native";
+import { type ImageSourcePropType, Platform, View } from "react-native";
 import { captureRef } from "react-native-view-shot";
 
 import PlaceholderImage from "@/assets/images/background-image.png";
@@ -55,18 +56,35 @@ export default function Home() {
 	};
 
 	const onSaveImageAsync = async () => {
-		try {
-			const localUri = await captureRef(imageRef, {
-				height: 440,
-				quality: 1,
-			});
+		if (Platform.OS !== "web") {
+			try {
+				const localUri = await captureRef(imageRef, {
+					height: 440,
+					quality: 1,
+				});
 
-			await MediaLibrary.saveToLibraryAsync(localUri);
-			if (localUri) {
-				alert("Saved!");
+				await MediaLibrary.saveToLibraryAsync(localUri);
+				if (localUri) {
+					alert("Saved!");
+				}
+			} catch (e) {
+				console.log(e);
 			}
-		} catch (e) {
-			console.log(e);
+		} else {
+			try {
+				const dataUrl = await domtoimage.toJpeg(imageRef.current, {
+					quality: 0.95,
+					width: 320,
+					height: 440,
+				});
+
+				const link = document.createElement("a");
+				link.download = "sticker-smash.jpeg";
+				link.href = dataUrl;
+				link.click();
+			} catch (e) {
+				console.log(e);
+			}
 		}
 	};
 

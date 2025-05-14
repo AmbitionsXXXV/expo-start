@@ -21,6 +21,7 @@
 		"@trpc/server": "^11.1.2",
 		"@trpc/tanstack-react-query": "^11.1.2",
 		"better-auth": "^1.2.7",
+		"dom-to-image": "^2.6.0",
 		"expo": "^53.0.9",
 		"expo-constants": "~17.1.6",
 		"expo-dev-client": "~5.1.8",
