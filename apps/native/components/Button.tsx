@@ -4,15 +4,16 @@ import { Pressable, Text, View } from "react-native";
 type Props = {
 	label: string;
 	theme?: "primary";
+	onPress?: () => void;
 };
 
-export default function Button({ label, theme }: Props) {
+export default function Button({ label, theme, onPress }: Props) {
 	if (theme === "primary") {
 		return (
 			<View className="mx-5 h-[68px] w-80 items-center justify-center rounded-2xl border-4 border-yellow-300 p-[3px]">
 				<Pressable
+					onPress={onPress}
 					className="size-full flex-row items-center justify-center rounded-[10px] bg-white"
-					onPress={() => alert("You pressed a button.")}
 				>
 					<FontAwesome
 						name="picture-o"
