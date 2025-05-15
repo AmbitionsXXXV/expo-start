@@ -18,6 +18,12 @@
 				{
 					"image": "./assets/images/splash-icon.png"
 				}
+			],
+			[
+				"expo-dev-client",
+				{
+					"launchMode": "most-recent"
+				}
 			]
 		],
 		"experiments": {
