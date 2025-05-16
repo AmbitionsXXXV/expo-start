@@ -4,4 +4,5 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
 	...config,
 	slug: "my-app",
 	name: "My App",
+	plugins: [...(config.plugins || []), "expo-localization"],
 });

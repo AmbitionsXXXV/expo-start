@@ -1,8 +1,10 @@
-import { Tabs } from "expo-router";
-
 import Ionicons from "@expo/vector-icons/Ionicons";
+import { Tabs } from "expo-router";
+import { useTranslation } from "react-i18next";
 
 export default function TabLayout() {
+	const { t } = useTranslation();
+
 	return (
 		<Tabs
 			screenOptions={{
@@ -12,7 +14,7 @@ export default function TabLayout() {
 			<Tabs.Screen
 				name="index"
 				options={{
-					title: "Home",
+					title: t("tabs.home"),
 					tabBarIcon: ({ color, focused }) => (
 						<Ionicons
 							name={focused ? "home-sharp" : "home-outline"}
@@ -25,7 +27,7 @@ export default function TabLayout() {
 			<Tabs.Screen
 				name="about"
 				options={{
-					title: "About",
+					title: t("tabs.about"),
 					tabBarIcon: ({ color, focused }) => (
 						<Ionicons
 							name={
@@ -40,7 +42,7 @@ export default function TabLayout() {
 			<Tabs.Screen
 				name="health"
 				options={{
-					title: "Health",
+					title: t("tabs.health"),
 					tabBarIcon: ({ color, focused }) => (
 						<Ionicons
 							name={focused ? "heart-sharp" : "heart-outline"}

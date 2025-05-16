@@ -12,9 +12,12 @@ import { QueryClientProvider } from "@tanstack/react-query";
 import { Stack } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 import React, { useRef } from "react";
+import { I18nextProvider } from "react-i18next";
 import { Platform } from "react-native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
+import { LanguageProvider } from "../contexts/LanguageContext";
 import "../global.css";
+import i18n from "../i18n";
 
 const LIGHT_THEME: Theme = {
 	...DefaultTheme,
@@ -53,18 +56,17 @@ export default function RootLayout() {
 	return (
 		<QueryClientProvider client={queryClient}>
 			<ThemeProvider value={isDarkColorScheme ? DARK_THEME : LIGHT_THEME}>
-				<StatusBar style={isDarkColorScheme ? "light" : "dark"} />
-				<GestureHandlerRootView style={{ flex: 1 }}>
-					<Stack>
-						{/* <Stack.Screen name="index" options={{ title: "Home" }} /> */}
-						{/* <Stack.Screen name="(drawer)" options={{ headerShown: false }} /> */}
-						<Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-						{/* <Stack.Screen
-							name="modal"
-							options={{ title: "Modal", presentation: "modal" }}
-						/> */}
-					</Stack>
-				</GestureHandlerRootView>
+				<I18nextProvider i18n={i18n}>
+					<LanguageProvider>
+						<StatusBar style={isDarkColorScheme ? "light" : "dark"} />
+						<GestureHandlerRootView style={{ flex: 1 }}>
+							<Stack>
+								<Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+								<Stack.Screen name="+not-found" options={{ title: "Oops!" }} />
+							</Stack>
+						</GestureHandlerRootView>
+					</LanguageProvider>
+				</I18nextProvider>
 			</ThemeProvider>
 		</QueryClientProvider>
 	);

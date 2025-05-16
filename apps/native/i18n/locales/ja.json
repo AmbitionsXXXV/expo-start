@@ -1,0 +1,14 @@
+{
+	"tabs": {
+		"home": "ホーム",
+		"about": "について",
+		"health": "健康"
+	},
+	"settings": {
+		"language": "言語",
+		"theme": "テーマ",
+		"lightTheme": "ライトテーマ",
+		"darkTheme": "ダークテーマ",
+		"devMenu": "開発者メニュー"
+	}
+}

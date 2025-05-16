@@ -1,0 +1,14 @@
+{
+	"tabs": {
+		"home": "Home",
+		"about": "About",
+		"health": "Health"
+	},
+	"settings": {
+		"language": "Language",
+		"theme": "Theme",
+		"lightTheme": "Light Theme",
+		"darkTheme": "Dark Theme",
+		"devMenu": "Developer Menu"
+	}
+}
