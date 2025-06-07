@@ -1,0 +1,8 @@
+{
+	"android": {
+		"package": "com.etcetera.mybettertapp"
+	},
+	"ios": {
+		"bundleIdentifier": "com.etcetera.mybettertapp"
+	}
+}
