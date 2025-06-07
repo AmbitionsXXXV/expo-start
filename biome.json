@@ -17,7 +17,8 @@
 			"routeTree.gen.ts",
 			"src-tauri",
 			".nuxt",
-			"*.d.ts"
+			"*.d.ts",
+			".tamagui"
 		]
 	},
 	"extends": ["etc-shared-biome-rules/react"]
